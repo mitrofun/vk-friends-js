@@ -2,7 +2,7 @@
   //position: fixed;
   width: 80px;
   background: #242a31;
-  min-height: 996px;
+  min-height: 704px;
 
   margin-left: 80px;
   min-width: 360px;
@@ -14,6 +14,11 @@
 
 .friends__item {
 
+}
+
+.friends__list {
+  height: 627px;
+  overflow: auto;
 }
 
 

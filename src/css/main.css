@@ -264,12 +264,6 @@ ul {
   overflow: hidden;
   position: relative;
 }
-.wrapper:after {
-  content: "";
-  display: block;
-  height: 90px;
-  margin-top: 20px;
-}
 
 .footer {
   min-height: 90px;
@@ -294,19 +288,24 @@ ul {
   position: fixed;
   width: 80px;
   background: #1d232a;
-  min-height: 996px;
+  min-height: 704px;
 }
 
 .friends__sidebar {
   width: 80px;
   background: #242a31;
-  min-height: 996px;
+  min-height: 704px;
   margin-left: 80px;
   min-width: 360px;
 }
 
 .sidebar__search {
   border-bottom: 1px solid #40464c;
+}
+
+.friends__list {
+  height: 627px;
+  overflow: auto;
 }
 
 .friends-link {

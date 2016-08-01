@@ -33,13 +33,7 @@ ul {
   min-height: 100%;
   overflow: hidden;
   position: relative;
-
-  &:after {
-    content: "";
-    display: block;
-    height: 90px;
-    margin-top: 20px;
-  }
+  
 }
 
 .footer {
