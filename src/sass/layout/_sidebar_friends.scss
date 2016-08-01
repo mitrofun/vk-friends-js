@@ -1,0 +1,54 @@
+.friends__sidebar {
+  //position: fixed;
+  width: 80px;
+  background: #242a31;
+  min-height: 996px;
+
+  margin-left: 80px;
+  min-width: 360px;
+}
+
+.sidebar__search {
+  border-bottom: 1px solid #40464c;
+}
+
+.friends__item {
+
+}
+
+
+.friends-link {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+
+.friend__data {
+  padding: 5px 20px 0;
+}
+
+.friend__img {
+  display: inline-block;
+  vertical-align: middle;
+  border-bottom: 1px solid #40464c;
+  padding: 20px 0;
+}
+
+.friend__text {
+   display: inline-block;
+   vertical-align: middle;
+   padding-left: 10px;
+}
+
+.friend__bdate {
+  font-size: 12px;
+  color: #868a8d;
+}
+
+
+
+.friend__img-link {
+  border-radius: 50%;
+  overflow: hidden;
+  max-width: 50px;
+}
