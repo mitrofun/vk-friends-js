@@ -304,7 +304,7 @@ ul {
 }
 
 .friends__list {
-  height: 627px;
+  height: 626px;
   overflow: auto;
 }
 
@@ -318,11 +318,22 @@ ul {
   padding: 5px 20px 0;
 }
 
+.friends__online {
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background: #2dc100;
+  position: absolute;
+  left: -6px;
+  top: 13px;
+}
+
 .friend__img {
   display: inline-block;
   vertical-align: middle;
   border-bottom: 1px solid #40464c;
   padding: 20px 0;
+  position: relative;
 }
 
 .friend__text {
@@ -354,6 +365,20 @@ input {
   border: none;
   background: #363d45;
   color: #7b8184;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-width: 1px 1px 1px 2px;
+  background-color: rgba(170, 170, 170, 0.45);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-width: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

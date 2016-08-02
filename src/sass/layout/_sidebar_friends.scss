@@ -1,9 +1,7 @@
 .friends__sidebar {
-  //position: fixed;
   width: 80px;
   background: #242a31;
-  min-height: 704px;
-
+  min-height: 704px; //TODO: calculate
   margin-left: 80px;
   min-width: 360px;
 }
@@ -12,12 +10,8 @@
   border-bottom: 1px solid #40464c;
 }
 
-.friends__item {
-
-}
-
 .friends__list {
-  height: 627px;
+  height: 626px; //TODO: calculate
   overflow: auto;
 }
 
@@ -32,11 +26,22 @@
   padding: 5px 20px 0;
 }
 
+.friends__online {
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background: #2dc100;
+  position: absolute;
+  left: -6px;
+  top: 13px;
+}
+
 .friend__img {
   display: inline-block;
   vertical-align: middle;
   border-bottom: 1px solid #40464c;
   padding: 20px 0;
+  position: relative;
 }
 
 .friend__text {
@@ -49,8 +54,6 @@
   font-size: 12px;
   color: #868a8d;
 }
-
-
 
 .friend__img-link {
   border-radius: 50%;

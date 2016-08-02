@@ -115,6 +115,9 @@ new Promise(function (resolve) {
             if (serverAnswer.error) {
                 reject(new Error(serverAnswer.error.error_msg));
             } else {
+                let friendsTemplate = document.getElementById('friendsTemplate');
+                let friendsList = document.getElementById('friendsList');
+                
                 let source = friendsTemplate.innerHTML;
                 let template = Handlebars.compile(source);
                 friendsList.innerHTML = template({friend: Friends.response.items});
