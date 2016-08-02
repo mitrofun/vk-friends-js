@@ -12,7 +12,7 @@ function getNumberDayInYear(date) {
 }
 
 
-function getDateFromString(sDate) {
+function getDateFromString(sDate, getYear) {
 
     let result;
     let currentYear = new Date().getFullYear();
@@ -20,8 +20,18 @@ function getDateFromString(sDate) {
     if (!!sDate && typeof sDate != 'undefined') {
 
         let y, m, d;
+        if (getYear) {
 
-        y = currentYear;
+            if (sDate.split('.')[2]) {
+                y = sDate.split('.')[2];
+            } else {
+                y = currentYear;
+            }
+
+        } else {
+            y = currentYear;
+        }
+
         m = sDate.split('.')[1] - 1;
         d = sDate.split('.')[0];
 
@@ -58,6 +68,41 @@ function getNumberDayOnCurrentDay(date) {
     }
 }
 
+function getAge(date) {
+
+    let result;
+
+    if (date == '') {
+        return 0;
+    }
+
+    let now = new Date();
+    let today = new Date(now.getFullYear(), now.getMonth(), now.getDay());
+
+    if (date.getFullYear() == today.getFullYear()) {
+        return 0;
+    }
+
+    if (today > date) {
+
+        if (
+            (today.getMonth() == date.getMonth() && today.getDay() == date.getDay()) ||
+            (today.getMonth() == date.getMonth() && today.getDay() < date.getDay()) ||
+            (today.getMonth() > date.getMonth())
+        ) {
+            result = Math.round((today - date) / (365 * 60 * 60 * 24 * 1000));
+        } else {
+            result = Math.round((today - date) / (365 * 60 * 60 * 24 * 1000)) - 1;
+        }
+
+    } else {
+        result = 0
+    }
+
+    return result
+
+}
+
 function sortFriendsByBdate(array) {
     array.sort(function (a, b) {
 
@@ -71,11 +116,13 @@ function sortFriendsByBdate(array) {
 }
 
 
-function setDays(obj) {
+function setExtraData(obj) {
 
     for (let i = 0; i < obj.response.items.length; i++) {
         let friend = obj.response.items[i];
-            friend._sort = getNumberDayOnCurrentDay(getDateFromString(friend.bdate))
+            friend._sort = getNumberDayOnCurrentDay(getDateFromString(friend.bdate));
+            friend._age = getAge(getDateFromString(friend.bdate, true));
+
     }
 }
 
@@ -106,7 +153,7 @@ new Promise(function (resolve) {
             // console.log(serverAnswer);
             let Friends = serverAnswer;
 
-            setDays(Friends);
+            setExtraData(Friends);
 
             sortFriendsByBdate(Friends.response.items);
 
@@ -117,7 +164,7 @@ new Promise(function (resolve) {
             } else {
                 let friendsTemplate = document.getElementById('friendsTemplate');
                 let friendsList = document.getElementById('friendsList');
-                
+
                 let source = friendsTemplate.innerHTML;
                 let template = Handlebars.compile(source);
                 friendsList.innerHTML = template({friend: Friends.response.items});

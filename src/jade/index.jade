@@ -31,6 +31,9 @@ html(lang="ru")
 								img(src="{{photo_50}}" class="friend__img-link")
 							.friend__text
 								.friend__name {{first_name}} {{ last_name }}
+								{{#if _age}}
+								.friends__age {{_age}}
+								{{/if}}
 								.friend__bdate {{#if bdate}}{{ bdate }}{{else}}н.д.{{/if}}
 				{{/each}}
 

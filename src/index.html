@@ -40,7 +40,8 @@
                 <div class="friends__online"></div>{{/if}}<img src="{{photo_50}}" class="friend__img-link">
               </div>
               <div class="friend__text">
-                <div class="friend__name">{{first_name}} {{ last_name }}</div>
+                <div class="friend__name">{{first_name}} {{ last_name }}</div>{{#if _age}}
+                <div class="friends__age">{{_age}}</div>{{/if}}
                 <div class="friend__bdate">{{#if bdate}}{{ bdate }}{{else}}н.д.{{/if}}</div>
               </div>
             </div></a></li>{{/each}}
